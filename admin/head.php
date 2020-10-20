@@ -25,10 +25,12 @@ if ($_SESSION['inpuser'] == "") {
 
     <!-- Pemanggilan DataTables -->
     <link rel="stylesheet" href="../vendor/datatables.net-bs/css/dataTables.bootstrap.min.css">
-    <link rel="stylesheet" href="../vendor/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
-    <link rel="stylesheet" href="../vendor/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css">
-    <link rel="stylesheet" href="../vendor/datatables.net-responsive-bs/css/responsive.bootstrap.min.css">
-    <link rel="stylesheet" href="../vendor/datatables.net-scroller-bs/css/scroller.bootstrap.min.css">
+
+    <!-- Useless -->
+    <!-- <link rel="stylesheet" href="../vendor/datatables.net-buttons-bs/css/buttons.bootstrap.min.css"> -->
+    <!-- <link rel="stylesheet" href="../vendor/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css"> -->
+    <!-- <link rel="stylesheet" href="../vendor/datatables.net-responsive-bs/css/responsive.bootstrap.min.css"> -->
+    <!-- <link rel="stylesheet" href="../vendor/datatables.net-scroller-bs/css/scroller.bootstrap.min.css"> -->
 
     <!-- Tema CSS -->
     <link rel="stylesheet" href="../css/custom.min.css">
