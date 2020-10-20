@@ -1,12 +1,12 @@
  
-<?php include_once ('head.php'); ?>
+<?php include_once 'head.php'; ?>
 
 <body class="nav-md">
  
   <div class="container body">
     <div class="main_container">
  
-      <?php include_once ('header.php'); ?>
+      <?php include_once 'header.php'; ?>
  
       <div class="right_col" role="main">
       <?php
@@ -36,7 +36,7 @@
           <br><br><br><br>
           <div class="" align="right">
             <div class="title_left">
-              <h2>Saldo tersisa = <?php echo "Rp. ". number_format($saldo, 0, ",", "."); ?></h2>
+              <h2>Saldo tersisa = <?php print_r("Rp. ". number_format($saldo, 0, ",", ".")); ?></h2>
             </div>
           </div>
                   <br>
@@ -49,30 +49,30 @@
           <?php 
           if (isset($_GET['simpan'])) {
 
-            echo '
+            print_r('
             <div class="alert alert-success alert-dismissible fade in" role="alert">
               <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
               </button>
               Data berhasil dimasukkan
-            </div>';
+            </div>');
 
           }  else if (isset($_GET['update'])) {
 
-            echo '
+            print_r('
             <div class="alert alert-success alert-dismissible fade in" role="alert">
               <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
               </button>
               Data berhasil diupdate
-            </div>';
+            </div>');
 
           } else if (isset($_GET['hapus'])) {
 
-            echo '
+            print_r('
             <div class="alert alert-danger alert-dismissible fade in" role="alert">
               <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
               </button>
               Data berhasil dihapus
-            </div>';
+            </div>');
 
           }
            ?>
@@ -152,7 +152,7 @@
                     <tbody>
 
                         <?php 
-                        include_once ('../db/koneksi.php');
+                        include_once '../db/koneksi.php';
 
                         $query  = "SELECT a.id_pemasukan, a.tanggal, a.nominal, b.nama_jenis, a.keterangan
                                     FROM dta_pemasukan a, dta_jenis b
@@ -168,12 +168,12 @@
 
                          ?>
                          <tr>
-                             <td><?php echo $no ?></td>
-                             <td><?php echo $row['id_pemasukan']; ?></td>
-                             <td><?php echo $row['tanggal']; ?></td>
-                             <td><?php echo "Rp. ". number_format($row['nominal'], 0, ",", "."); ?></td>
-                             <td><?php echo $row['nama_jenis']; ?></td>
-                             <td><?php echo $row['keterangan']; ?></td>
+                             <td><?php print_r($no);?></td>
+                             <td><?php print_r($row['id_pemasukan']); ?></td>
+                             <td><?php print_r($row['tanggal']); ?></td>
+                             <td><?php print_r("Rp. ". number_format($row['nominal'], 0, ",", ".")); ?></td>
+                             <td><?php print_r($row['nama_jenis']); ?></td>
+                             <td><?php print_r($row['keterangan']); ?></td>
                          </tr>
 
                         <?php
@@ -191,11 +191,11 @@
 
         </div>
       </div> 
-      <?php include_once ('footer.php'); ?>
+      <?php include_once 'footer.php'; ?>
 
     </div>
   </div> 
-<?php include_once ('foot.php'); ?>
+<?php include_once 'foot.php'; ?>
  
 <script type="text/javascript">
   $(document).ready(function () {

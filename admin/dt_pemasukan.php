@@ -1,12 +1,12 @@
  
-<?php include_once ('head.php'); ?>
+<?php include_once 'head.php'; ?>
 
 <body class="nav-md">
  
   <div class="container body">
     <div class="main_container">
  
-      <?php include_once ('header.php'); ?>
+      <?php include_once 'header.php'; ?>
       <?php
 
       $sql   = "SELECT * FROM dta_jenis WHERE nama_jenis = 'pemasukan'";
@@ -21,13 +21,13 @@
                   <br>
           <div class="page-title">
             <div class="title_left">
-              <h3>Data Pemasukan</h3>
+              <h3>Data Pemasukan Admin</h3>
             </div>
           </div>
 
           <div class="" align="right">
             <div class="title_left">
-              <h5>Total Pemasukan = <?php echo "Rp. ". number_format($totalpemasukan, 0, ",", "."); ?></h5>
+              <h5>Total Pemasukan = <?php print_r("Rp. ". number_format($totalpemasukan, 0, ",", ".")); ?></h5>
             </div>
           </div>
 
@@ -77,30 +77,30 @@
           <?php 
           if (isset($_GET['simpan'])) {
 
-            echo '
+            print_r( '
             <div class="alert alert-success alert-dismissible fade in" role="alert">
               <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
               </button>
               Data berhasil dimasukkan
-            </div>';
+            </div>');
 
           }  else if (isset($_GET['update'])) {
 
-            echo '
+            print_r( '
             <div class="alert alert-success alert-dismissible fade in" role="alert">
               <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
               </button>
               Data berhasil diupdate
-            </div>';
+            </div>');
 
           } else if (isset($_GET['hapus'])) {
 
-            echo '
+            print_r( '
             <div class="alert alert-danger alert-dismissible fade in" role="alert">
               <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
               </button>
               Data berhasil dihapus
-            </div>';
+            </div>');
 
           }
            ?>
@@ -124,7 +124,7 @@
                     <tbody>
 
                         <?php 
-                        include_once ('../db/koneksi.php');
+                        include_once '../db/koneksi.php';
 
                         $query  = "SELECT * FROM dta_pemasukan";
                         $result = $mysqli->query($query);
@@ -134,11 +134,11 @@
 
                          ?>
                          <tr>
-                             <td><?php echo $no ?></td>
-                             <td><?php echo $row['id_pemasukan']; ?></td>
-                             <td><?php echo $row['tanggal']; ?></td>
-                             <td><?php echo "Rp. ". number_format($row['nominal'], 0, ",", "."); ?></td>
-                             <td><?php echo $row['keterangan']; ?></td>
+                             <td><?php print_r($no);  ?></td>
+                             <td><?php print_r($row['id_pemasukan']); ?></td>
+                             <td><?php print_r($row['tanggal']); ?></td>
+                             <td><?php print_r("Rp. ". number_format($row['nominal'], 0, ",", ".")); ?></td>
+                             <td><?php print_r($row['keterangan']); ?></td>
                              <td align="center">
                                <a class="btn btn-primary" href="../rekap/cetak_pemasukan_ke.php?id_pemasukan=<?php echo $row['id_pemasukan'] ?>" target="_blank"><i class="fa fa-print"></i></a>
                              </td>
@@ -159,11 +159,11 @@
 
         </div>
       </div> 
-      <?php include_once ('footer.php'); ?>
+      <?php include_once 'footer.php'; ?>
 
     </div>
   </div> 
-<?php include_once ('foot.php'); ?>
+<?php include_once 'foot.php'; ?>
  
 <script type="text/javascript">
   $(document).ready(function () {

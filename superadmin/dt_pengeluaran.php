@@ -1,12 +1,12 @@
  
-<?php include_once ('head.php'); ?>
+<?php include_once 'head.php'; ?>
 
 <body class="nav-md">
  
   <div class="container body">
     <div class="main_container">
  
-      <?php include_once ('header.php'); ?>
+      <?php include_once 'header.php'; ?>
       <?php
 
       $sql   = "SELECT * FROM dta_jenis WHERE nama_jenis = 'pengeluaran'";
@@ -26,7 +26,7 @@
           </div>
           <div class="" align="right">
             <div class="title_left">
-              <h5>Total Pengeluaran = <?php echo "Rp. ". number_format($totalpengeluaran, 0, ",", "."); ?></h5>
+              <h5>Total Pengeluaran = <?php print_r("Rp. ". number_format($totalpengeluaran, 0, ",", ".")); ?></h5>
             </div>
           </div>
 
@@ -45,30 +45,30 @@
           <?php 
           if (isset($_GET['simpan'])) {
 
-            echo '
+            print_r( '
             <div class="alert alert-success alert-dismissible fade in" role="alert">
               <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
               </button>
               Data berhasil dimasukkan
-            </div>';
+            </div>');
 
           }  else if (isset($_GET['update'])) {
 
-            echo '
+            print_r( '
             <div class="alert alert-success alert-dismissible fade in" role="alert">
               <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
               </button>
               Data berhasil diupdate
-            </div>';
+            </div>');
 
           } else if (isset($_GET['hapus'])) {
 
-            echo '
+            print_r( '
             <div class="alert alert-danger alert-dismissible fade in" role="alert">
               <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
               </button>
               Data berhasil dihapus
-            </div>';
+            </div>');
 
           }
            ?>
@@ -93,7 +93,7 @@
 
                         <?php
                         //koneksi
-                        include_once ('../db/koneksi.php');
+                        include_once '../db/koneksi.php';
 
                         $query  = "SELECT * FROM dta_pengeluaran";
                         $result = $mysqli->query($query);
@@ -103,15 +103,15 @@
 
                          ?>
                          <tr>
-                             <td><?php echo $no ?></td>
-                             <td><?php echo $row['id_pengeluaran']; ?></td>
-                             <td><?php echo $row['tanggal']; ?></td>
-                             <td><?php echo "Rp. ". number_format($row['nominal'], 0, ",", "."); ?></td>
-                             <td><?php echo $row['keterangan']; ?></td>
+                             <td><?php print_r($no);  ?></td>
+                             <td><?php print_r($row['id_pengeluaran']); ?></td>
+                             <td><?php print_r($row['tanggal']); ?></td>
+                             <td><?php print_r("Rp. ". number_format($row['nominal'], 0, ",", ".")); ?></td>
+                             <td><?php print_r($row['keterangan']); ?></td>
                              <td align="center">
-                               <a class="btn btn-success" href="../rekap/cetak_pengeluaran_ke.php?id_pengeluaran=<?php echo $row['id_pengeluaran'] ?>" target="_blank"><i class="fa fa-print"></i>
-                               <a class="btn btn-primary" href="dt_pengeluaran_update.php?id_pengeluaran=<?php echo $row['id_pengeluaran'] ?>"><i class="fa fa-edit"></i> </a>
-                               <a class="btn btn-danger" href="javascript:;" data-id="<?php echo $row['id_pengeluaran'] ?>" data-toggle="modal" data-target="#modal-konfirmasihapuspengeluaran"><i class="fa fa-trash"></i></a>
+                               <a class="btn btn-success" href="../rekap/cetak_pengeluaran_ke.php?id_pengeluaran=<?php print_r( $row['id_pengeluaran']); ?>" target="_blank"><i class="fa fa-print"></i>
+                               <a class="btn btn-primary" href="dt_pengeluaran_update.php?id_pengeluaran=<?php print_r($row['id_pengeluaran']); ?>"><i class="fa fa-edit"></i> </a>
+                               <a class="btn btn-danger" href="javascript:;" data-id="<?php print_r($row['id_pengeluaran']); ?>" data-toggle="modal" data-target="#modal-konfirmasihapuspengeluaran"><i class="fa fa-trash"></i></a>
                              </td>
                          </tr>
 
@@ -147,11 +147,11 @@
         </div>
       </div>
  
-      <?php include_once ('footer.php'); ?>
+      <?php include_once 'footer.php'; ?>
 
     </div>
   </div> 
-<?php include_once ('foot.php'); ?>
+<?php include_once 'foot.php'; ?>
  
 <script type="text/javascript">
   $(document).ready(function () {
