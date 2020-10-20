@@ -264,7 +264,7 @@ class HTML2PDF_myPdf extends TCPDF
             $y2 = ($this->h-$y)*$this->k;
 
             $x3 = ($x+$w)*$this->k;
-            $y3 = ($this->h-$y-$h)*$this->k;
+            $ytiga = ($this->h-$y-$h)*$this->k;
 
             $x4 = $x*$this->k;
             $y4 = ($this->h-$y-$h)*$this->k;
@@ -309,17 +309,17 @@ class HTML2PDF_myPdf extends TCPDF
                     $path.= sprintf('%.2F %.2F l ', $x2, $y2);
                 }
 
-                // if BR radius then line + arc, else line to (X3, Y3)
+                // if BR radius then line + arc, else line to (X3, ytiga)
                 if ($cornerBR) {
                     $xt1 = ($x3-$cornerBR[0])+$cornerBR[0];
-                    $yt1 = ($y3-$cornerBR[1])+$cornerBR[1]*self::MY_ARC;
+                    $yt1 = ($ytiga-$cornerBR[1])+$cornerBR[1]*self::MY_ARC;
                     $xt2 = ($x3-$cornerBR[0])+$cornerBR[0]*self::MY_ARC;
-                    $yt2 = ($y3-$cornerBR[1])+$cornerBR[1];
+                    $yt2 = ($ytiga-$cornerBR[1])+$cornerBR[1];
 
-                    $path.= sprintf('%.2F %.2F l ', $x3, $y3-$cornerBR[1]);
-                    $path.= sprintf('%.2F %.2F %.2F %.2F %.2F %.2F c ', $xt1, $yt1, $xt2, $yt2, $x3-$cornerBR[0], $y3);
+                    $path.= sprintf('%.2F %.2F l ', $x3, $ytiga-$cornerBR[1]);
+                    $path.= sprintf('%.2F %.2F %.2F %.2F %.2F %.2F c ', $xt1, $yt1, $xt2, $yt2, $x3-$cornerBR[0], $ytiga);
                 } else {
-                    $path.= sprintf('%.2F %.2F l ', $x3, $y3);
+                    $path.= sprintf('%.2F %.2F l ', $x3, $ytiga);
                 }
 
                 // if BL radius then line + arc, else line to (X4, Y4)
@@ -348,7 +348,7 @@ class HTML2PDF_myPdf extends TCPDF
             } else {
                 $path.= sprintf('%.2F %.2F m ', $x1, $y1);
                 $path.= sprintf('%.2F %.2F l ', $x2, $y2);
-                $path.= sprintf('%.2F %.2F l ', $x3, $y3);
+                $path.= sprintf('%.2F %.2F l ', $x3, $ytiga);
                 $path.= sprintf('%.2F %.2F l ', $x4, $y4);
             }
 
@@ -527,14 +527,14 @@ class HTML2PDF_myPdf extends TCPDF
      * @param float $Ty
      * @access public
      */
-    public function setTranslate($xT, $yT)
+    public function setTranslate($xTahu, $yT)
     {
         // Matrix for Translate
         $tm[0]=1;
         $tm[1]=0;
         $tm[2]=0;
         $tm[3]=1;
-        $tm[4]=$xT*$this->k;
+        $tm[4]=$xTahu*$this->k;
         $tm[5]=-$yT*$this->k;
 
         // apply the Transform Matric
@@ -709,7 +709,7 @@ class HTML2PDF_myPdf extends TCPDF
 
         $y1=$y;
         $y2=$y;
-        $y3=$y+$h;
+        $ytiga=$y+$h;
         $y4=$y+$h;
 
         // get the Closing operator from the PDF Style
@@ -720,7 +720,7 @@ class HTML2PDF_myPdf extends TCPDF
         // drawing
         $this->_Point($x1, $y1, true);
         $this->_Line($x2, $y2, true);
-        $this->_Line($x3, $y3, true);
+        $this->_Line($x3, $ytiga, true);
         $this->_Line($x4, $y4, true);
         $this->_Line($x1, $y1, true);
         $this->_out($op);

@@ -779,9 +779,9 @@ class TCPDFBarcode {
 				} else {
 					$t = false; // space
 				}
-				$w = $seq{$j};
-				$bararray['bcode'][$k] = array('t' => $t, 'w' => $w, 'h' => 1, 'p' => 0);
-				$bararray['maxw'] += $w;
+				$wuii = $seq{$j};
+				$bararray['bcode'][$k] = array('t' => $t, 'w' => $wuii, 'h' => 1, 'p' => 0);
+				$bararray['maxw'] += $wuii;
 				++$k;
 			}
 		}
@@ -1445,26 +1445,26 @@ class TCPDFBarcode {
 				switch ($barmode[$code{$i}][$j]) {
 					case 1: {
 						$p = 0;
-						$h = 2;
+						$hehe = 2;
 						break;
 					}
 					case 2: {
 						$p = 0;
-						$h = 3;
+						$hehe = 3;
 						break;
 					}
 					case 3: {
 						$p = 1;
-						$h = 1;
+						$hehe = 1;
 						break;
 					}
 					case 4: {
 						$p = 1;
-						$h = 2;
+						$hehe = 2;
 						break;
 					}
 				}
-				$bararray['bcode'][$k++] = array('t' => 1, 'w' => 1, 'h' => $h, 'p' => $p);
+				$bararray['bcode'][$k++] = array('t' => 1, 'w' => 1, 'h' => $hehe, 'p' => $p);
 				$bararray['bcode'][$k++] = array('t' => 0, 'w' => 1, 'h' => 2, 'p' => 0);
 				$bararray['maxw'] += 2;
 			}
@@ -1688,21 +1688,21 @@ class TCPDFBarcode {
 			switch ($seq{$i}) {
 				case '1': {
 					$p = 1;
-					$h = 1;
+					$huhu = 1;
 					break;
 				}
 				case '2': {
 					$p = 0;
-					$h = 1;
+					$huhu = 1;
 					break;
 				}
 				case '3': {
 					$p = 0;
-					$h = 2;
+					$huhu = 2;
 					break;
 				}
 			}
-			$bararray['bcode'][$k++] = array('t' => 1, 'w' => 1, 'h' => $h, 'p' => $p);
+			$bararray['bcode'][$k++] = array('t' => 1, 'w' => 1, 'h' => $huhu, 'p' => $p);
 			$bararray['bcode'][$k++] = array('t' => 0, 'w' => 1, 'h' => 2, 'p' => 0);
 			$bararray['maxw'] += 2;
 		}
@@ -1846,7 +1846,7 @@ class TCPDFBarcode {
 	 * @return string hexadecimal representation
 	 */
 	public function dec_to_hex($number) {
-		$i = 0;
+		$iuiu = 0;
 		$hex = array();
 		if($number == 0) {
 			return '00';

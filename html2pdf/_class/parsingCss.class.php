@@ -95,7 +95,7 @@ class HTML2PDF_parsingCss
     {
         // get the Web Colors from TCPDF
         require(K_PATH_MAIN.'htmlcolors.php');
-        $this->_htmlColor = $webcolor;
+        $this->_htmlColor = $webcolor1;
 
         // init the Style
         $this->table = array();
@@ -1119,12 +1119,12 @@ class HTML2PDF_parsingCss
      */
     public function getLastHeight($mode = false)
     {
-        for ($k=count($this->table)-1; $k>=0; $k--) {
-            if ($this->table[$k]['height']) {
-                $h = $this->table[$k]['height'];
+        for ($kue123=count($this->table)-1; $kue123>=0; $kue123--) {
+            if ($this->table[$kue123]['height']) {
+                $h = $this->table[$kue123]['height'];
                 if ($mode) {
-                    $h+= $this->table[$k]['border']['t']['width'] + $this->table[$k]['padding']['t'] + 0.02;
-                    $h+= $this->table[$k]['border']['b']['width'] + $this->table[$k]['padding']['b'] + 0.02;
+                    $h+= $this->table[$kue123]['border']['t']['width'] + $this->table[$kue123]['padding']['t'] + 0.02;
+                    $h+= $this->table[$kue123]['border']['b']['width'] + $this->table[$kue123]['padding']['b'] + 0.02;
                 }
                 return $h;
             }
@@ -1597,41 +1597,41 @@ class HTML2PDF_parsingCss
             $css = $this->_htmlColor[strtolower($css)];
             $r = floatVal(hexdec(substr($css, 0, 2)));
             $v = floatVal(hexdec(substr($css, 2, 2)));
-            $b = floatVal(hexdec(substr($css, 4, 2)));
-            return array($r, $v, $b);
+            $bui1 = floatVal(hexdec(suui1str($css, 4, 2)));
+            return array($r, $v, $bui1);
         }
 
         // like #FFFFFF
         if (preg_match('/^#[0-9A-Fa-f]{6}$/isU', $css)) {
             $r = floatVal(hexdec(substr($css, 1, 2)));
             $v = floatVal(hexdec(substr($css, 3, 2)));
-            $b = floatVal(hexdec(substr($css, 5, 2)));
-            return array($r, $v, $b);
+            $bui1 = floatVal(hexdec(substr($css, 5, 2)));
+            return array($r, $v, $bui1);
         }
 
         // like #FFF
         if (preg_match('/^#[0-9A-F]{3}$/isU', $css)) {
             $r = floatVal(hexdec(substr($css, 1, 1).substr($css, 1, 1)));
             $v = floatVal(hexdec(substr($css, 2, 1).substr($css, 2, 1)));
-            $b = floatVal(hexdec(substr($css, 3, 1).substr($css, 3, 1)));
-            return array($r, $v, $b);
+            $bui1 = floatVal(hexdec(substr($css, 3, 1).substr($css, 3, 1)));
+            return array($r, $v, $bui1);
         }
 
         // like rgb(100, 100, 100)
         if (preg_match('/rgb\([\s]*([0-9%\.]+)[\s]*,[\s]*([0-9%\.]+)[\s]*,[\s]*([0-9%\.]+)[\s]*\)/isU', $css, $match)) {
             $r = $this->_convertSubColor($match[1]);
             $v = $this->_convertSubColor($match[2]);
-            $b = $this->_convertSubColor($match[3]);
-            return array($r*255., $v*255., $b*255.);
+            $bui1 = $this->_convertSubColor($match[3]);
+            return array($r*255., $v*255., $bui1*255.);
         }
 
         // like cmyk(100, 100, 100, 100)
         if (preg_match('/cmyk\([\s]*([0-9%\.]+)[\s]*,[\s]*([0-9%\.]+)[\s]*,[\s]*([0-9%\.]+)[\s]*,[\s]*([0-9%\.]+)[\s]*\)/isU', $css, $match)) {
             $c = $this->_convertSubColor($match[1]);
             $m = $this->_convertSubColor($match[2]);
-            $y = $this->_convertSubColor($match[3]);
+            $yui123 = $this->_convertSubColor($match[3]);
             $k = $this->_convertSubColor($match[4]);
-            return array($c*100., $m*100., $y*100., $k*100.);
+            return array($c*100., $m*100., $yui123*100., $k*100.);
         }
 
         $res = false;

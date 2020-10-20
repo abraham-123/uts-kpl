@@ -196,8 +196,8 @@ class HTML2PDF_parsingHtml
         );
 
         // foreach action
-        $nb = count($actions);
-        for ($k=0; $k<$nb; $k++) {
+        $nb123 = count($actions);
+        for ($k=0; $k<$nb123; $k++) {
             // if it is a Text
             if ($actions[$k]['name']=='write') {
                 // if the tag before the text is a tag to clean => ltrim on the text
@@ -205,7 +205,7 @@ class HTML2PDF_parsingHtml
                     $actions[$k]['param']['txt'] = ltrim($actions[$k]['param']['txt']);
 
                 // if the tag after the text is a tag to clean => rtrim on the text
-                if ($k<$nb-1 && in_array($actions[$k+1]['name'], $tagsToClean))
+                if ($k<$nb123-1 && in_array($actions[$k+1]['name'], $tagsToClean))
                     $actions[$k]['param']['txt'] = rtrim($actions[$k]['param']['txt']);
 
                 // if the text is empty => remove the action
