@@ -1,4 +1,4 @@
-<?php include_once ('head.php') ?>
+<?php include_once '../template/head.php' ?>
 
 <div class="col-md-3 left_col">
   <div class="left_col scroll-view">
